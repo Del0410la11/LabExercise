@@ -3,6 +3,7 @@ package com.example.labexercise;
 
 
 import android.content.Intent;
+import android.icu.text.Transliterator;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -58,10 +59,12 @@ public class DetailFragment extends Fragment {
         mVolume = v.findViewById(R.id.tvVolumeField);
         mSearch = v.findViewById(R.id.ivSearch);
 
+        Bundle position = new Bundle();
 
+        position.putInt(MainActivity.EXTRA_MESSAGE, 0);
 
+        mCoin = Coin.getCoins().get(Transliterator.Position);
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        
         mName.setText(mCoin.getName());
         mSymbol.setText(mCoin.getSymbol());
         mValue.setText(formatter.format(mCoin.getValue()));
@@ -81,10 +84,6 @@ public class DetailFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
-
-
 
         if (getArguments().getBoolean("inWide")) {
             String message = getArguments().getString("message");
