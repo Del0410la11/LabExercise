@@ -20,6 +20,7 @@ public class MainFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mRecyclerView = findViewById(R.id.rvList);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
